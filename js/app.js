@@ -58,19 +58,21 @@ var guess = function(){
 var hotOrCold = function(guess){
 
 	guessDistance.push(guess);
-	distance = randomNum - guessDistance[0];
-	distanceTwo = randomNum - guessDistance[1];
+	distance = randomNum - guess;
+	distanceTwo = randomNum - guessDistance[0];
 
-	
-
-	if (distance < distanceTwo && guessCount > 1){
-		console.log('Your going the wrong way!');
-	}else if(distance > distanceTwo && guessCount > 1){
-		console.log('this might work');
-	} else if (guess === randomNum) {
+	if (guess === randomNum) {
 		console.log("You guessed correctly!")
+	} else if (distance < distanceTwo && guessCount > 1){
+		console.log('Your going the wrong way!');
+	} else if(distance > distanceTwo && guessCount > 1){
+		console.log('this might work');
+	} else if (distance < distanceTwo && guessCount > 1){
+		console.log('Your going the wrong way!');
 	} else if (randomNum + 5 > guess && randomNum - 5 < guess) {
 		console.log('Your really Hot!');
+	} else if (randomNum + 10 > guess && randomNum - 10 < guess) {
+		console.log(('Your pretty Hot!'))
 	} else if (randomNum + 20 > guess && randomNum - 20 < guess) {
 		console.log('Your cooling off!');
 	} else if (randomNum + 30 > guess && randomNum - 30 < guess) {
